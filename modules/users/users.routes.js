@@ -1,9 +1,18 @@
-const router =  require("express").Router();
+import express from "express"; 
+import { addUser, getAllUsers ,deleteUser,updateUser} from "./controllers/user.controller.js";
 
-console.log("inside user Routes");
+const router = express.Router();
 
-router.get("/all", (req,res)=>{
-    res.json("hello")
-});
+router.get("/" , (req,res)=>{
+    res.json({message: "hello from Blog app"})
+})
 
-module.exports = router;
+router.post("/addUser",addUser)
+
+router.get("/user",getAllUsers)
+
+router.delete("/user",deleteUser)
+
+router.put("/user",updateUser)
+
+export default router;
